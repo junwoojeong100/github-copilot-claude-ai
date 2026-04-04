@@ -79,11 +79,6 @@ code .
 guides/                                               # 기술 가이드 문서
 ├── agic-to-agc-migration-guide.md                   # AGIC → AGC 마이그레이션 가이드
 └── foundry-vs-copilot-studio-slides.md              # Foundry vs Copilot Studio 비교 슬라이드
-
-tests/                                                # 테스트 및 유틸리티 스크립트
-├── requirements.txt                                 # Python 의존성
-├── youtube_korean_subtitle.py                       # YouTube 한국어 자막 생성 (배치)
-└── youtube_realtime_subtitle.py                     # YouTube 실시간 자막 생성 (스트리밍)
 ```
 
 ---
