@@ -1,5 +1,7 @@
 # GitHub vs Competitors — DevOps 플랫폼 비교
 
+> **Last Updated**: 2026-04 | 가격 및 기능은 변경될 수 있습니다. 최신 정보는 각 공식 문서를 확인하세요.
+
 ---
 
 ## 1. 전체 플랫폼 비교
@@ -124,8 +126,9 @@
 
 | Tier | 비용 | 포함 기능 |
 |------|------|----------|
-| Copilot Free | $0 | 월 2,000 자동완성, 50 채팅 |
+| Copilot Free | $0 | 월 2,000 자동완성, 50 에이전트/채팅 요청 |
 | Copilot Pro | $10/월 | 무제한 자동완성/채팅 |
+| Copilot Pro+ | $39/월 | 5× 프리미엄 요청, 모든 모델 접근 |
 | Copilot Business | $19/user/월 | 조직 관리, 정책 제어 |
 | Copilot Enterprise | $39/user/월 | Knowledge Bases, Bing 검색 |
 

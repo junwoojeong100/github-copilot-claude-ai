@@ -1,5 +1,7 @@
 # Microsoft Foundry vs Competitors — AI 에이전트 플랫폼 비교
 
+> **Last Updated**: 2026-04 | AI 서비스 가격 및 기능은 빈번히 변경됩니다. 최신 정보는 각 공식 문서를 확인하세요.
+
 > Microsoft AI Foundry(구 Azure AI Studio)와 경쟁 AI 플랫폼을 비교합니다.
 
 ---

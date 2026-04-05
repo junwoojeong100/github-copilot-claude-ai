@@ -158,13 +158,16 @@ az keyvault show -n <KV_NAME> --query "properties.accessPolicies"
 
 ### 429 Too Many Requests (RU 초과)
 **원인**: 프로비저닝된 RU 초과, 비효율적 쿼리, Hot Partition
+> **참고**: Autoscale 모드에서도 설정된 최대 RU를 초과하면 429가 발생할 수 있습니다. Autoscale은 트래픽에 따라 RU를 자동 조절하지만, 최대 한도 이상의 부하에는 스로틀링됩니다.
+
 **해결**:
 ```bash
 # 현재 RU 설정 확인
 az cosmosdb sql container throughput show --account-name <ACCOUNT> -g <RG> -d <DB> -n <CONTAINER>
 ```
 **조치**:
-- Autoscale 모드 활성화
+- Autoscale 모드 활성화 (Manual 프로비저닝 모드인 경우)
+- Autoscale 최대 RU 상향 조정 (이미 Autoscale 모드인 경우)
 - 쿼리 최적화 (point read 사용, 크로스 파티션 쿼리 제거)
 - 파티션 키 재설계 검토
 

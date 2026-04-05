@@ -82,12 +82,8 @@ def calculate_discount(price: float, tier: str) -> float:
 
 ## 보안 관련 코딩
 
-### 반드시 지키는 것
-- 사용자 입력은 항상 검증/새니타이즈합니다.
-- SQL 쿼리에는 파라미터 바인딩을 사용합니다.
-- 시크릿/인증 정보를 코드에 하드코딩하지 않습니다.
-- HTTPS를 기본으로 사용합니다.
-- OWASP Top 10 취약점을 인지하고 방어합니다.
+보안 정책, OWASP Top 10 대응, 거부 기준, 코드에서 절대 하지 않는 것 등 상세 지침은 [safety.instructions.md](safety.instructions.md)를 참조합니다.
+아래는 가장 흔한 보안 코딩 예시입니다.
 
 ### 보안 코드 예시
 ```python

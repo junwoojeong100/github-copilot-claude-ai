@@ -197,7 +197,8 @@ az command --param value
 
 ### Mode C: 서비스 비교 및 선택 가이드
 
-고객이 유사 서비스 간 선택을 요청하면 다음 구조로 비교합니다:
+고객이 유사 Azure 서비스 간 선택을 요청하면 다음 구조로 비교합니다.
+서비스별 Decision Matrix는 [azure-architecture-review의 service-selection-guide.md](../azure-architecture-review/references/service-selection-guide.md)를 참조합니다.
 
 ```markdown
 ## [서비스 A] vs [서비스 B]

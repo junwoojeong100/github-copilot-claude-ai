@@ -19,8 +19,8 @@
 
 | 파일 | 역할 | 적용 범위 |
 |------|------|----------|
-| [coding.instructions.md](.github/instructions/coding.instructions.md) | 코딩 관련 지침 | 모든 코드 파일 |
-| [safety.instructions.md](.github/instructions/safety.instructions.md) | 안전 및 윤리 가이드라인 | 모든 파일 |
+| [coding.instructions.md](instructions/coding.instructions.md) | 코딩 관련 지침 | 모든 코드 파일 |
+| [safety.instructions.md](instructions/safety.instructions.md) | 안전 및 윤리 가이드라인 | 모든 파일 |
 
 ### 가이드 문서 (`guides/`)
 
@@ -28,10 +28,10 @@ Claude AI의 페르소나, 사고방식, 소통 스타일을 정의합니다.
 
 | 파일 | 역할 |
 |------|------|
-| [persona.md](.github/guides/persona.md) | Claude AI 페르소나 정의 |
-| [thinking.md](.github/guides/thinking.md) | 사고방식 및 추론 프로세스 |
-| [communication.md](.github/guides/communication.md) | 커뮤니케이션 스타일 가이드 |
-| [prompts.md](.github/guides/prompts.md) | 프롬프트 활용 가이드 |
+| [persona.md](guides/persona.md) | Claude AI 페르소나 정의 |
+| [thinking.md](guides/thinking.md) | 사고방식 및 추론 프로세스 |
+| [communication.md](guides/communication.md) | 커뮤니케이션 스타일 가이드 |
+| [prompts.md](guides/prompts.md) | 프롬프트 활용 가이드 |
 
 ### 스킬 (`skills/`)
 
@@ -39,11 +39,11 @@ Claude AI의 페르소나, 사고방식, 소통 스타일을 정의합니다.
 
 | 스킬 | 역할 |
 |------|------|
-| [azure-architecture-review](.github/skills/azure-architecture-review/) | Azure 아키텍처 설계 및 WAF 리뷰 |
-| [azure-support-guide](.github/skills/azure-support-guide/) | Azure 서비스 사용법 안내 및 트러블슈팅 |
-| [cloud-competitive-analysis](.github/skills/cloud-competitive-analysis/) | Azure/GitHub 경쟁사 비교 분석 |
-| [google-web-search](.github/skills/google-web-search/) | Google 웹 검색을 통한 최신 정보 수집 |
-| [fact-check](.github/skills/fact-check/) | 모든 답변 마지막에 팩트체크 수행 (항상 적용) |
+| [azure-architecture-review](skills/azure-architecture-review/) | Azure 아키텍처 설계 및 WAF 리뷰 |
+| [azure-support-guide](skills/azure-support-guide/) | Azure 서비스 사용법 안내 및 트러블슈팅 |
+| [cloud-competitive-analysis](skills/cloud-competitive-analysis/) | Azure/GitHub 경쟁사 비교 분석 |
+| [google-web-search](skills/google-web-search/) | Google 웹 검색을 통한 최신 정보 수집 |
+| [fact-check](skills/fact-check/) | 모든 답변 마지막에 팩트체크 수행 (항상 적용) |
 
 ## 팩트체크 규칙
 
@@ -51,7 +51,7 @@ Claude AI의 페르소나, 사고방식, 소통 스타일을 정의합니다.
 - 답변에 포함된 핵심 사실적 주장 3~7개를 선별하여 검증합니다.
 - 검증 결과는 `### 🔍 팩트체크` 표로 답변 끝에 표시합니다.
 - 단순 인사/감사 등 사실적 주장이 없는 경우에만 생략 가능합니다.
-- 상세 워크플로우는 [fact-check 스킬](.github/skills/fact-check/SKILL.md)을 참조합니다.
+- 상세 워크플로우는 [fact-check 스킬](skills/fact-check/SKILL.md)을 참조합니다.
 
 ## 출처 표시 규칙
 

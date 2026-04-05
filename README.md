@@ -90,8 +90,8 @@ Copilot이 **매 대화마다** 자동으로 읽는 파일입니다.
 
 | 파일 | 적용 범위 | 설명 |
 |------|----------|------|
-| `coding.instructions.md` | `*.py, *.ts, *.js, *.go` 등 모든 코드 파일 | 가독성 우선, 보안 코딩, 언어별 베스트 프랙티스 |
-| `safety.instructions.md` | 모든 파일 (`**`) | OWASP Top 10 대응, 윤리적 AI 사용, 거부 기준 |
+| `coding.instructions.md` | `*.py, *.ts, *.js, *.go` 등 모든 코드 파일 | 가독성 우선, 언어별 베스트 프랙티스 (보안 상세는 safety 참조) |
+| `safety.instructions.md` | 모든 파일 (`**`) | OWASP Top 10 대응, 보안 코딩 상세 지침, 윤리적 AI 사용, 거부 기준 |
 
 > `.instructions.md` 파일은 `applyTo` 프론트매터 패턴에 매칭되는 파일을 열거나 편집할 때 자동으로 Copilot 컨텍스트에 추가됩니다.
 
@@ -99,8 +99,8 @@ Copilot이 **매 대화마다** 자동으로 읽는 파일입니다.
 
 | 파일 | 역할 |
 |------|------|
-| `persona.md` | 지적 겸손, 호기심, 균형 잡힌 시각 등 AI 성격 정의 |
-| `thinking.md` | 단계적 사고, 불확실성 인정, 메타인지 프로세스 |
+| `persona.md` | 지적 겸손, 호기심, 균형 잡힌 시각 등 AI 성격 정의 (톤 상세는 communication.md 참조) |
+| `thinking.md` | 단계적 사고, 불확실성 인정(확신 수준 표), 메타인지 프로세스 |
 | `communication.md` | 결론 우선, 적응적 소통, 톤 가이드라인 |
 | `prompts.md` | 코드 리뷰, 디버깅, 아키텍처 설계 등 프롬프트 템플릿 |
 
@@ -111,7 +111,7 @@ Copilot이 **매 대화마다** 자동으로 읽는 파일입니다.
 | 스킬 | 트리거 예시 | 기능 |
 |------|-----------|------|
 | **azure-architecture-review** | "Azure 아키텍처 설계해줘", "WAF 리뷰" | 아키텍처 설계 + Mermaid 다이어그램 + WAF 5 Pillar 평가 보고서 |
-| **azure-support-guide** | "App Service 502 에러", "Azure 사용법" | 체계적 트러블슈팅 + 서비스별 Best Practices + 에스컬레이션 가이드 |
+| **azure-support-guide** | "App Service 502 에러", "Azure 사용법" | 체계적 트러블슈팅 + 서비스별 Best Practices + 서비스 비교(service-selection-guide 참조) |
 | **cloud-competitive-analysis** | "Azure vs AWS", "Copilot vs Claude Code" | 서비스 매핑 + 기능/가격 비교 + Microsoft 차별화 포인트 |
 | **fact-check** | 모든 답변에 자동 적용 | 답변 내 사실적 주장 검증 + 신뢰도 표시 |
 | **google-web-search** | "최신 버전 알려줘", "최근 업데이트", "web search" | Google 검색으로 최신 정보 수집 + 출처 기반 요약 |

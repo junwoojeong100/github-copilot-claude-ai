@@ -1,5 +1,7 @@
 # GitHub Copilot vs Claude Code vs Competitors — AI 코딩 어시스턴트 비교
 
+> **Last Updated**: 2026-04 | AI 서비스 가격 및 기능은 빈번히 변경됩니다. 최신 정보는 각 공식 문서를 확인하세요.
+
 ---
 
 ## 1. 제품 개요
@@ -163,7 +165,7 @@
 
 | 제품 | 무료 | 개인 유료 | 비즈니스 | 엔터프라이즈 |
 |------|------|----------|---------|------------|
-| **GitHub Copilot** | ✅ Free (월 2K 완성, 50 채팅) | $10/월 Pro | $19/user/월 Business | $39/user/월 Enterprise |
+| **GitHub Copilot** | ✅ Free (월 2K 완성, 50 에이전트/채팅) | $10/월 Pro, $39/월 Pro+ | $19/user/월 Business | $39/user/월 Enterprise |
 | **Claude Code** | ❌ (Claude Pro/Max 구독 필요) | $20/월 (Pro) / $100/월 (Max) / $200/월 (Max5x) | API 사용량 기반 | API 사용량 기반 |
 | **Cursor** | ✅ 제한적 무료 | $20/월 Pro | $40/user/월 Business | — |
 | **Amazon Q** | ✅ Free tier | $19/user/월 | $19/user/월 | — |
