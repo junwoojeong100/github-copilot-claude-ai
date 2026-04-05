@@ -75,10 +75,6 @@ code .
     │
     └── google-web-search/                           # Google 웹 검색으로 최신 정보 수집
         └── SKILL.md
-
-guides/                                               # 기술 가이드 문서
-├── agic-to-agc-migration-guide.md                   # AGIC → AGC 마이그레이션 가이드
-└── foundry-vs-copilot-studio-slides.md              # Foundry vs Copilot Studio 비교 슬라이드
 ```
 
 ---
