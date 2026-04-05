@@ -8,8 +8,8 @@ GitHub Copilot을 **Claude AI의 원칙과 전문 스킬**로 커스터마이징
 ### 1. 리포지토리 클론
 
 ```bash
-git clone https://github.com/junwoojeong/claude-ai.git
-cd claude-ai
+git clone https://github.com/junwoojeong100/github-copilot-like-claude.git
+cd github-copilot-like-claude
 ```
 
 ### 2. VS Code로 열기
