@@ -22,9 +22,10 @@ code .
 
 별도 설정 없이 Copilot Chat에서 대화하면 모든 지침이 자동으로 적용됩니다.
 
-- **일반 대화**: `copilot-instructions.md` + `guides/` 자동 적용
+- **일반 대화**: `copilot-instructions.md` + `instructions/` 자동 적용
 - **코드 작업**: `instructions/` 파일이 패턴 매칭으로 자동 로드
-- **전문 스킬**: `/azure-architecture-review` 등 슬래시 명령 또는 관련 질문 시 자동 활성화
+- **프롬프트 템플릿**: `prompts/` 파일을 VS Code 프롬프트 선택기에서 선택
+- **전문 스킬**: 관련 질문 시 자동 활성화
 
 ---
 
@@ -36,13 +37,17 @@ code .
 │
 ├── instructions/                                     # 자동 적용 지침 (applyTo 패턴)
 │   ├── coding.instructions.md                       # 코드 품질·보안·스타일
-│   └── safety.instructions.md                       # 안전·윤리 가이드라인
+│   ├── safety.instructions.md                       # 안전·윤리 가이드라인
+│   ├── persona.instructions.md                      # AI 페르소나 정의
+│   ├── thinking.instructions.md                     # 사고방식·추론 프로세스
+│   └── communication.instructions.md                # 커뮤니케이션 스타일
 │
-├── guides/                                           # 페르소나 & 소통 가이드
-│   ├── persona.md                                   # AI 페르소나 정의
-│   ├── thinking.md                                  # 사고방식·추론 프로세스
-│   ├── communication.md                             # 커뮤니케이션 스타일
-│   └── prompts.md                                   # 프롬프트 활용 가이드
+├── prompts/                                          # 재사용 프롬프트 (온디맨드)
+│   ├── code-review.prompt.md                        # 코드 리뷰 요청
+│   ├── debug.prompt.md                              # 버그 디버깅
+│   ├── architecture.prompt.md                       # 아키텍처 설계
+│   ├── explain.prompt.md                            # 학습/설명 요청
+│   └── refactor.prompt.md                           # 리팩토링 요청
 │
 └── skills/                                           # 전문 스킬 (온디맨드)
     ├── azure-architecture-review/                   # Azure 아키텍처 설계 & WAF 리뷰
@@ -92,17 +97,23 @@ Copilot이 **매 대화마다** 자동으로 읽는 파일입니다.
 |------|----------|------|
 | `coding.instructions.md` | `*.py, *.ts, *.js, *.go` 등 모든 코드 파일 | 가독성 우선, 언어별 베스트 프랙티스 (보안 상세는 safety 참조) |
 | `safety.instructions.md` | 모든 파일 (`**`) | OWASP Top 10 대응, 보안 코딩 상세 지침, 윤리적 AI 사용, 거부 기준 |
+| `persona.instructions.md` | 모든 파일 (`**`) | 지적 겸손, 호기심, 균형 잡힌 시각 등 AI 성격 정의 |
+| `thinking.instructions.md` | 모든 파일 (`**`) | 단계적 사고, 불확실성 인정(확신 수준 표), 메타인지 프로세스 |
+| `communication.instructions.md` | 모든 파일 (`**`) | 결론 우선, 적응적 소통, 톤 가이드라인 |
 
 > `.instructions.md` 파일은 `applyTo` 프론트매터 패턴에 매칭되는 파일을 열거나 편집할 때 자동으로 Copilot 컨텍스트에 추가됩니다.
 
-### `guides/` — 페르소나 & 소통 가이드
+### `prompts/` — 재사용 프롬프트
+
+VS Code 프롬프트 선택기에서 선택하여 사용할 수 있는 템플릿입니다.
 
 | 파일 | 역할 |
 |------|------|
-| `persona.md` | 지적 겸손, 호기심, 균형 잡힌 시각 등 AI 성격 정의 (톤 상세는 communication.md 참조) |
-| `thinking.md` | 단계적 사고, 불확실성 인정(확신 수준 표), 메타인지 프로세스 |
-| `communication.md` | 결론 우선, 적응적 소통, 톤 가이드라인 |
-| `prompts.md` | 코드 리뷰, 디버깅, 아키텍처 설계 등 프롬프트 템플릿 |
+| `code-review.prompt.md` | 보안·성능·가독성 관점 코드 리뷰 |
+| `debug.prompt.md` | 증상 파악부터 근본 원인 분석까지 |
+| `architecture.prompt.md` | 요구사항 분석 → 트레이드오프 → 추천 |
+| `explain.prompt.md` | 사용자 수준에 맞춤 개념 설명 |
+| `refactor.prompt.md` | 기존 동작 유지하며 품질 개선 |
 
 ### `skills/` — 전문 스킬
 
@@ -191,9 +202,18 @@ description: "이 스킬의 용도와 트리거 키워드. WHEN: keyword1, keywo
 ...
 ```
 
-### 새로운 Guide 추가
+### 새로운 프롬프트 추가
 
-`.github/guides/` 폴더에 `.md` 파일을 만들고, `copilot-instructions.md`에서 참조합니다.
+`.github/prompts/` 폴더에 `*.prompt.md` 파일을 만들고 프론트매터를 설정합니다:
+
+```yaml
+---
+description: "프롬프트 설명"
+mode: "ask"
+---
+
+프롬프트 내용...
+```
 
 ---
 

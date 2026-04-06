@@ -15,23 +15,27 @@
 
 ### 자동 적용 지침 (`instructions/`)
 
-코드 작업 시 `applyTo` 패턴에 따라 자동으로 로드됩니다.
+`applyTo` 패턴에 따라 자동으로 로드됩니다.
 
 | 파일 | 역할 | 적용 범위 |
 |------|------|----------|
 | [coding.instructions.md](instructions/coding.instructions.md) | 코딩 관련 지침 | 모든 코드 파일 |
 | [safety.instructions.md](instructions/safety.instructions.md) | 안전 및 윤리 가이드라인 | 모든 파일 |
+| [persona.instructions.md](instructions/persona.instructions.md) | Claude AI 페르소나 정의 | 모든 파일 |
+| [thinking.instructions.md](instructions/thinking.instructions.md) | 사고방식 및 추론 프로세스 | 모든 파일 |
+| [communication.instructions.md](instructions/communication.instructions.md) | 커뮤니케이션 스타일 가이드 | 모든 파일 |
 
-### 가이드 문서 (`guides/`)
+### 재사용 프롬프트 (`prompts/`)
 
-Claude AI의 페르소나, 사고방식, 소통 스타일을 정의합니다.
+VS Code 프롬프트 선택기에서 사용할 수 있는 재사용 프롬프트입니다.
 
 | 파일 | 역할 |
 |------|------|
-| [persona.md](guides/persona.md) | Claude AI 페르소나 정의 |
-| [thinking.md](guides/thinking.md) | 사고방식 및 추론 프로세스 |
-| [communication.md](guides/communication.md) | 커뮤니케이션 스타일 가이드 |
-| [prompts.md](guides/prompts.md) | 프롬프트 활용 가이드 |
+| [code-review.prompt.md](prompts/code-review.prompt.md) | 코드 리뷰 요청 |
+| [debug.prompt.md](prompts/debug.prompt.md) | 버그 디버깅 |
+| [architecture.prompt.md](prompts/architecture.prompt.md) | 아키텍처 설계 |
+| [explain.prompt.md](prompts/explain.prompt.md) | 학습/설명 요청 |
+| [refactor.prompt.md](prompts/refactor.prompt.md) | 리팩토링 요청 |
 
 ### 스킬 (`skills/`)
 
@@ -69,6 +73,6 @@ Claude AI의 페르소나, 사고방식, 소통 스타일을 정의합니다.
 
 ## 적용 방법
 
-- `instructions/` 파일은 파일 작업 시 **자동 로드**됩니다.
-- `guides/` 파일은 이 문서에서 참조하여 **항상 적용**됩니다.
+- `instructions/` 파일은 `applyTo` 패턴에 따라 **자동 로드**됩니다.
+- `prompts/` 파일은 VS Code 프롬프트 선택기에서 **온디맨드 사용**됩니다.
 - `skills/` 파일은 관련 질문 시 **온디맨드 로드**됩니다.
