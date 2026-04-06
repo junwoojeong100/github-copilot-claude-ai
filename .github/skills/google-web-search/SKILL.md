@@ -30,28 +30,45 @@ AI 모델의 학습 데이터 컷오프 이후의 **최신 정보**가 필요할
 - 구체적인 기술 용어 사용
 - 불필요한 조사/접속사 제거
 
-**⚠️ 도메인 제한 (필수):**
+**도메인 정책:**
 
-모든 검색 쿼리에는 반드시 아래 허용 도메인으로 제한하는 `site:` 연산자를 포함해야 합니다:
+검색 결과의 신뢰성을 보장하기 위해, **신뢰 도메인 우선 정책**을 적용합니다.
 
-```
-(site:google.com OR site:youtube.com OR site:microsoft.com OR site:github.com)
-```
+**1차 신뢰 도메인 (기본 사용):**
 
-- 허용 도메인: `google.com`, `youtube.com`, `microsoft.com`, `github.com`
-- `microsoft.com`에는 `learn.microsoft.com`, `devblogs.microsoft.com`, `azure.microsoft.com` 등 모든 서브도메인이 포함됩니다.
-- `github.com`에는 `github.blog`, `docs.github.com` 등이 포함됩니다.
-- 이 도메인 제한은 **어떤 상황에서도 생략하거나 우회할 수 없습니다.**
-- 사용자가 다른 도메인을 명시적으로 요청해도, 위 4개 도메인 내에서만 검색합니다.
+| 도메인 | 포함 범위 |
+|----------|----------|
+| `microsoft.com` | Microsoft Learn, DevBlogs, Azure 문서 등 모든 서브도메인 |
+| `github.com` | GitHub Blog, Docs, 릴리스 페이지, Discussions |
+| `google.com` | Google 개발자 블로그, Google Cloud 문서 |
+| `youtube.com` | 공식 채널 영상, 데모, 튜토리얼 |
+
+**2차 신뢰 도메인 (기술 공식 소스):**
+
+| 도메인 | 용도 |
+|----------|------|
+| `python.org`, `pypi.org` | Python 공식 문서, 패키지 정보 |
+| `nodejs.org`, `npmjs.com` | Node.js, npm 패키지 정보 |
+| `kubernetes.io` | Kubernetes 공식 문서 |
+| `react.dev`, `angular.dev`, `vuejs.org` | 프론트엔드 프레임워크 공식 문서 |
+| `rust-lang.org`, `go.dev`, `typescriptlang.org` | 언어 공식 문서 |
+| `docker.com` | Docker 공식 문서 |
+| `terraform.io` | Terraform 공식 문서 |
+| `stackoverflow.com` | 기술 Q&A |
+| `dev.to`, `medium.com` | 기술 블로그 (교차 검증 필수) |
+
+**사용자 지정 도메인:** 사용자가 특정 도메인을 명시적으로 요청하면 해당 도메인도 검색합니다.
+
+**금지 도메인:** 신뢰할 수 없는 소스, 알 수 없는 개인 블로그, SEO 스팸 사이트 등에서는 정보를 가져오지 않습니다.
 
 **검색 쿼리 예시:**
 
 | 사용자 질문 | 최적화된 쿼리 |
 |------------|-------------|
-| "React 최신 버전이 뭐야?" | `React latest version 2026 (site:google.com OR site:youtube.com OR site:microsoft.com OR site:github.com)` |
-| "Azure Functions 요금 변경됐어?" | `Azure Functions pricing changes 2026 (site:google.com OR site:youtube.com OR site:microsoft.com OR site:github.com)` |
-| "Python 3.13 새 기능" | `Python 3.13 new features changelog (site:google.com OR site:youtube.com OR site:microsoft.com OR site:github.com)` |
-| "Kubernetes 최신 동향" | `Kubernetes latest trends 2026 (site:google.com OR site:youtube.com OR site:microsoft.com OR site:github.com)` |
+| "React 최신 버전이 뭐야?" | `React latest version 2026 site:react.dev OR site:github.com/facebook/react` |
+| "Azure Functions 요금 변경됐어?" | `Azure Functions pricing changes 2026 site:microsoft.com` |
+| "Python 3.13 새 기능" | `Python 3.13 new features changelog site:python.org OR site:github.com` |
+| "Kubernetes 최신 동향" | `Kubernetes latest trends 2026 site:kubernetes.io OR site:github.com` |
 
 ### Step 2: 웹 검색 수행
 
@@ -118,14 +135,15 @@ fetch_webpage 도구를 사용:
 - query: "찾고자 하는 구체적인 정보"
 ```
 
-**우선순위가 높은 소스 (허용 도메인 내):**
-1. Microsoft 공식 문서 (`learn.microsoft.com`, `devblogs.microsoft.com`)
-2. GitHub 공식 블로그/문서 (`github.blog`, `docs.github.com`)
-3. GitHub 릴리스 페이지 (`github.com/{owner}/{repo}/releases`)
-4. YouTube 공식 채널 영상 (`youtube.com`)
-5. Google 개발자 블로그 (`developers.google.com`)
+**소스 우선순위:**
+1. **공식 프로젝트 사이트** — 해당 기술의 공식 도메인 (react.dev, python.org, kubernetes.io 등)
+2. **Microsoft 공식 문서** — `learn.microsoft.com`, `devblogs.microsoft.com`
+3. **GitHub 공식 블로그/릴리스** — `github.blog`, `github.com/{owner}/{repo}/releases`
+4. **패키지 레지스트리** — `npmjs.com`, `pypi.org` 등
+5. **YouTube 공식 채널** — 데모, 튜토리얼
+6. **커뮤니티** — `stackoverflow.com`, `dev.to` (교차 검증 후 사용)
 
-> ⚠️ 상세 정보 수집 시에도 위 허용 도메인(google.com, youtube.com, microsoft.com, github.com)의 URL만 fetch합니다.
+> ⚠️ 비공식 소스(dev.to, medium.com, stackoverflow.com)의 정보는 공식 문서와 교차 검증하여 정확성을 확인합니다.
 
 ### Step 4: 결과 정리 및 응답
 
@@ -184,8 +202,9 @@ fetch_webpage 도구를 사용:
 
 ## 주의사항
 
-1. **정보 검증**: 단일 출처에 의존하지 않고, 가능한 여러 출처를 교차 검증합니다.
-2. **날짜 확인**: 검색 결과의 게시 날짜를 확인하여 최신성을 판단합니다.
-3. **공식 소스 우선**: 비공식 블로그보다 공식 문서/발표를 우선합니다.
+1. **공식 소스 우선**: 해당 기술의 공식 사이트 → 공식 문서 → 패키지 레지스트리 → 커뮤니티 순으로 우선합니다.
+2. **교차 검증**: 단일 출처에 의존하지 않고, 가능한 여러 출처를 교차 검증합니다. 비공식 소스는 반드시 공식 문서와 대조합니다.
+3. **날짜 확인**: 검색 결과의 게시 날짜를 확인하여 최신성을 판단합니다. 1년 이상 된 정보는 변경 여부를 재확인합니다.
 4. **불확실성 표시**: 검색 결과가 상충하거나 불확실할 경우 명시합니다.
 5. **개인정보 보호**: 검색 쿼리에 사용자의 개인정보를 포함하지 않습니다.
+6. **신뢰할 수 없는 소스 회피**: 출처가 불명한 개인 블로그, SEO 스패 사이트, 클릭베이트 사이트의 정보는 사용하지 않습니다.
