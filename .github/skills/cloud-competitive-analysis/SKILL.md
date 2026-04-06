@@ -172,8 +172,8 @@ MCP 도구 또는 Microsoft Learn 검색으로 최신 기능/가격 업데이트
 |-----------|----------|
 | 간단 매핑 | 인라인 매핑 테이블 |
 | 서비스 비교 | 구조화된 비교 보고서 (인라인) |
-| 상세 분석 | `<service>-comparison.md` 파일 생성 |
-| 마이그레이션 가이드 | `<source>-to-<target>-migration.md` 파일 생성 |
+| 상세 분석 | 인라인 보고서 (사용자가 파일 저장을 요청한 경우 `<service>-comparison.md` 생성) |
+| 마이그레이션 가이드 | 인라인 가이드 (사용자가 파일 저장을 요청한 경우 `<source>-to-<target>-migration.md` 생성) |
 
 ---
 

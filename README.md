@@ -35,6 +35,10 @@ code .
 .github/
 ├── copilot-instructions.md                          # 핵심 지침 (매 대화 자동 로드)
 │
+├── agents/                                           # 커스텀 에이전트 (온디맨드)
+│   ├── instruction-reviewer.agent.md                # 커스터마이징 파일 품질 점검
+│   └── skill-scaffolder.agent.md                    # 새 스킬 표준 구조 생성
+│
 ├── instructions/                                     # 자동 적용 지침 (applyTo 패턴)
 │   ├── coding.instructions.md                       # 코드 품질·보안·스타일
 │   ├── safety.instructions.md                       # 안전·윤리 가이드라인
@@ -91,11 +95,20 @@ code .
 Copilot이 **매 대화마다** 자동으로 읽는 파일입니다.  
 정직성, 깊이 있는 사고, 안전 우선 등 핵심 원칙과 전체 파일 구조 참조를 포함합니다.
 
+### `agents/` — 커스텀 에이전트
+
+특정 워크플로우에 특화된 에이전트입니다. Chat에서 `@` 또는 에이전트 선택기로 호출합니다.
+
+| 에이전트 | 도구 | 설명 |
+|----------|------|------|
+| `instruction-reviewer` | 읽기, 검색 | instructions/prompts/skills 파일의 품질·일관성·중복을 점검하고 보고서 제공 |
+| `skill-scaffolder` | 읽기, 편집, 검색, 에이전트 | 새 스킬을 표준 디렉토리 구조로 생성 (instruction-reviewer 연동) |
+
 ### `instructions/` — 자동 적용 지침
 
 | 파일 | 적용 범위 | 설명 |
 |------|----------|------|
-| `coding.instructions.md` | `*.py, *.ts, *.js, *.go` 등 모든 코드 파일 | 가독성 우선, 언어별 베스트 프랙티스 (보안 상세는 safety 참조) |
+| `coding.instructions.md` | `*.{py,js,ts,jsx,tsx,java,cs,go,rs,rb,php,swift,kt,c,cpp,h,hpp,sh,bash,zsh,yaml,yml,json,toml,sql}` 코드·설정 파일 | 가독성 우선, 언어별 베스트 프랙티스 (보안 상세는 safety 참조) |
 | `safety.instructions.md` | 모든 파일 (`**`) | OWASP Top 10 대응, 보안 코딩 상세 지침, 윤리적 AI 사용, 거부 기준 |
 | `persona.instructions.md` | 모든 파일 (`**`) | 지적 겸손, 호기심, 균형 잡힌 시각 등 AI 성격 정의 |
 | `thinking.instructions.md` | 모든 파일 (`**`) | 단계적 사고, 불확실성 인정(확신 수준 표), 메타인지 프로세스 |
@@ -122,7 +135,7 @@ VS Code 프롬프트 선택기에서 선택하여 사용할 수 있는 템플릿
 | 스킬 | 트리거 예시 | 기능 |
 |------|-----------|------|
 | **azure-architecture-review** | "Azure 아키텍처 설계해줘", "WAF 리뷰" | 아키텍처 설계 + Mermaid 다이어그램 + WAF 5 Pillar 평가 보고서 |
-| **azure-support-guide** | "App Service 502 에러", "Azure 사용법" | 체계적 트러블슈팅 + 서비스별 Best Practices + 서비스 비교(service-selection-guide 참조) |
+| **azure-support-guide** | "App Service 502 에러", "Azure 사용법" | 체계적 트러블슈팅 + 서비스별 Best Practices + 서비스 비교 |
 | **cloud-competitive-analysis** | "Azure vs AWS", "Copilot vs Claude Code" | 서비스 매핑 + 기능/가격 비교 + Microsoft 차별화 포인트 |
 | **fact-check** | 모든 답변에 자동 적용 | 답변 내 사실적 주장 검증 + 신뢰도 표시 |
 | **google-web-search** | "최신 버전 알려줘", "최근 업데이트", "web search" | Google 검색으로 최신 정보 수집 + 출처 기반 요약 |
@@ -200,6 +213,26 @@ description: "이 스킬의 용도와 트리거 키워드. WHEN: keyword1, keywo
 
 ## Workflow
 ...
+```
+
+### 새로운 에이전트 추가
+
+`.github/agents/` 폴더에 `*.agent.md` 파일을 만들고 프론트매터를 설정합니다:
+
+```yaml
+---
+description: "에이전트 용도. Use when: keyword1, keyword2."
+tools: [read, search]   # 허용할 도구 (read, edit, execute, search, web, agent, todo)
+---
+
+# 에이전트 이름
+
+## Constraints
+- DO NOT ...
+- ONLY ...
+
+## Approach
+1. ...
 ```
 
 ### 새로운 프롬프트 추가

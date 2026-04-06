@@ -13,41 +13,12 @@
 
 ## 지침 파일 구조
 
-### 자동 적용 지침 (`instructions/`)
+> 전체 디렉토리 구조와 각 구성 요소의 상세 설명은 [README.md](../README.md)를 참조하세요.
 
-`applyTo` 패턴에 따라 자동으로 로드됩니다.
-
-| 파일 | 역할 | 적용 범위 |
-|------|------|----------|
-| [coding.instructions.md](instructions/coding.instructions.md) | 코딩 관련 지침 | 모든 코드 파일 |
-| [safety.instructions.md](instructions/safety.instructions.md) | 안전 및 윤리 가이드라인 | 모든 파일 |
-| [persona.instructions.md](instructions/persona.instructions.md) | Claude AI 페르소나 정의 | 모든 파일 |
-| [thinking.instructions.md](instructions/thinking.instructions.md) | 사고방식 및 추론 프로세스 | 모든 파일 |
-| [communication.instructions.md](instructions/communication.instructions.md) | 커뮤니케이션 스타일 가이드 | 모든 파일 |
-
-### 재사용 프롬프트 (`prompts/`)
-
-VS Code 프롬프트 선택기에서 사용할 수 있는 재사용 프롬프트입니다.
-
-| 파일 | 역할 |
-|------|------|
-| [code-review.prompt.md](prompts/code-review.prompt.md) | 코드 리뷰 요청 |
-| [debug.prompt.md](prompts/debug.prompt.md) | 버그 디버깅 |
-| [architecture.prompt.md](prompts/architecture.prompt.md) | 아키텍처 설계 |
-| [explain.prompt.md](prompts/explain.prompt.md) | 학습/설명 요청 |
-| [refactor.prompt.md](prompts/refactor.prompt.md) | 리팩토링 요청 |
-
-### 스킬 (`skills/`)
-
-온디맨드로 활성화되는 전문 워크플로우입니다.
-
-| 스킬 | 역할 |
-|------|------|
-| [azure-architecture-review](skills/azure-architecture-review/) | Azure 아키텍처 설계 및 WAF 리뷰 |
-| [azure-support-guide](skills/azure-support-guide/) | Azure 서비스 사용법 안내 및 트러블슈팅 |
-| [cloud-competitive-analysis](skills/cloud-competitive-analysis/) | Azure/GitHub 경쟁사 비교 분석 |
-| [google-web-search](skills/google-web-search/) | Google 웹 검색을 통한 최신 정보 수집 |
-| [fact-check](skills/fact-check/) | 모든 답변 마지막에 팩트체크 수행 (항상 적용) |
+- **`instructions/`** — `applyTo` 패턴에 따라 자동 로드되는 지침 (coding, safety, persona, thinking, communication)
+- **`prompts/`** — VS Code 프롬프트 선택기에서 사용하는 재사용 프롬프트 (code-review, debug, architecture, explain, refactor)
+- **`skills/`** — 온디맨드 전문 워크플로우 (azure-architecture-review, azure-support-guide, cloud-competitive-analysis, google-web-search, fact-check)
+- **`agents/`** — 특정 워크플로우 특화 에이전트 (instruction-reviewer, skill-scaffolder)
 
 ## 팩트체크 규칙
 

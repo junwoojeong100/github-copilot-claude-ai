@@ -1,7 +1,7 @@
 ---
 name: azure-architecture-review
-description: "Design and review Microsoft Azure architectures using Well-Architected Framework (WAF) pillars. Generates architecture diagrams, evaluates designs against best practices, and produces actionable review reports. WHEN: design Azure architecture, review Azure architecture, WAF review, Well-Architected review, architecture assessment, cloud architecture design, Azure solution design, architecture diagram, high availability design, disaster recovery architecture, security architecture review, cost optimization review, performance review, operational excellence review, reliability review, Azure landing zone design, multi-region architecture, microservices architecture on Azure."
-argument-hint: "Describe your Azure workload or paste an existing architecture for review"
+description: "Microsoft Azure 아키텍처를 설계하고 Well-Architected Framework(WAF) 5대 Pillar 기준으로 리뷰합니다. 아키텍처 다이어그램 생성, 베스트 프랙티스 평가, 개선 보고서를 제공합니다. WHEN: Azure 아키텍처 설계, Azure 아키텍처 리뷰, WAF 리뷰, Well-Architected review, architecture assessment, cloud architecture design, Azure solution design, architecture diagram, 고가용성 설계, 재해 복구 아키텍처, high availability design, disaster recovery architecture, security architecture review, cost optimization review, performance review, operational excellence review, reliability review, Azure landing zone design, multi-region architecture, microservices architecture on Azure."
+argument-hint: "Azure 워크로드를 설명하거나 기존 아키텍처를 붙여넣으세요"
 ---
 
 # Azure Architecture Design & Review
@@ -241,7 +241,7 @@ Critical 또는 Needs Improvement 항목이 있을 경우, 개선된 아키텍�
 | Design | `<workload-name>-architecture.md` |
 | Review | `<workload-name>-review-report.md` |
 
-파일은 프로젝트 루트 또는 사용자가 지정한 경로에 생성합니다.
+사용자가 파일 저장을 요청한 경우에만 파일로 생성합니다. 기본적으로는 채팅 메시지로 결과를 제공합니다.
 
 ## Error Handling
 
