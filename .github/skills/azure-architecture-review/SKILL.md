@@ -162,7 +162,7 @@ az graph query -q "Resources | where resourceGroup == '<rg-name>' | project name
 
 #### Step 3: 리뷰 보고서 생성
 
-다음 구조로 보고서를 작성합니다:
+[review-report-template.md](./assets/review-report-template.md) 템플릿을 기반으로 보고서를 작성합니다:
 
 ```markdown
 # Azure Architecture Review Report

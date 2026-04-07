@@ -17,7 +17,7 @@
 
 - **`instructions/`** — `applyTo` 패턴에 따라 자동 로드되는 지침 (coding, safety, persona, thinking, communication)
 - **`prompts/`** — VS Code 프롬프트 선택기에서 사용하는 재사용 프롬프트 (code-review, debug, architecture, explain, refactor)
-- **`skills/`** — 온디맨드 전문 워크플로우 (azure-architecture-review, azure-support-guide, cloud-competitive-analysis, google-web-search, fact-check)
+- **`skills/`** — 온디맨드 전문 워크플로우 (azure-architecture-review, azure-support-guide, cloud-competitive-analysis, google-web-search, fact-check, foundry-agent-project)
 - **`agents/`** — 특정 워크플로우 특화 에이전트 (instruction-reviewer, skill-scaffolder)
 
 ## 팩트체크 규칙
@@ -26,7 +26,7 @@
 - 답변에 포함된 핵심 사실적 주장 3~7개를 선별하여 검증합니다.
 - 검증 결과는 `### 🔍 팩트체크` 표로 답변 끝에 표시합니다.
 - 단순 인사/감사 등 사실적 주장이 없는 경우에만 생략 가능합니다.
-- 상세 워크플로우는 [fact-check 스킬](skills/fact-check/SKILL.md)을 참조합니다.
+- 팩트체크 수행 시 [fact-check 스킬](skills/fact-check/SKILL.md)을 반드시 로드하여 상세 워크플로우를 따릅니다.
 
 ## 출처 표시 규칙
 
