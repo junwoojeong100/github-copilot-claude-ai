@@ -99,6 +99,9 @@ VS Code에서 Copilot Chat 패널을 열고, 하단의 **모델 선택기(Model 
     ├── fact-check/                                  # 모든 답변 팩트체크 (항상 적용)
     │   └── SKILL.md
     │
+    ├── foundry-agent-project/                       # Foundry 에이전트 프로젝트 생성
+    │   └── SKILL.md
+    │
     └── google-web-search/                           # Google 웹 검색으로 최신 정보 수집
         └── SKILL.md
 ```
@@ -157,6 +160,7 @@ VS Code 프롬프트 선택기(📎 → Prompt)에서 선택하여 사용하는 
 | **azure-support-guide** | "App Service 502 에러", "Azure 사용법" | 체계적 트러블슈팅 + 서비스별 Best Practices + 서비스 비교 |
 | **cloud-competitive-analysis** | "Azure vs AWS", "Copilot vs Claude Code" | 서비스 매핑 + 기능/가격 비교 + Microsoft 차별화 포인트 |
 | **fact-check** | 모든 답변에 자동 적용 | 답변 내 사실적 주장 검증 + 신뢰도 표시 |
+| **foundry-agent-project** | "Foundry 에이전트 만들어줘", "Agent Framework 프로젝트" | Microsoft Foundry + Agent Framework 기반 커스텀 에이전트 프로젝트 생성 |
 | **google-web-search** | "최신 버전 알려줘", "최근 업데이트", "web search" | Google 검색으로 최신 정보 수집 + 출처 기반 요약 |
 
 > **검색 도메인 정책**: `google-web-search` 스킬은 **신뢰 도메인 우선 정책**을 적용합니다.
