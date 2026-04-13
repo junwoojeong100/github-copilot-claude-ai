@@ -231,3 +231,35 @@ kubectl describe pod <POD_NAME> -n <NAMESPACE>
 kubectl get events -n <NAMESPACE> --sort-by='.lastTimestamp'
 kubectl top nodes
 ```
+
+---
+
+## Azure Cache for Redis
+
+### 연결 끊김 (Connection Reset)
+**원인**: 타임아웃 설정, 클라이언트 연결 수 초과, 메모리 부족
+**해결**:
+```bash
+# Redis 상태 확인
+az redis show -n <REDIS_NAME> -g <RG> --query "{sku:sku,provisioningState:provisioningState,hostName:hostName}"
+
+# 메트릭 확인 (연결 수, 메모리, CPU)
+az monitor metrics list --resource <REDIS_ID> --metric "connectedclients,usedmemorypercentage,serverLoad" --interval PT1H
+```
+- 클라이언트에서 `abortConnect=false`, `connectRetry=3` 설정 확인
+- 최소 `connectTimeout=5000`(ms) 권장
+
+### 높은 메모리 사용률
+**원인**: 큰 키, 만료 미설정, 데이터 증가
+**해결**:
+- `redis-cli --bigkeys`로 큰 키 식별
+- TTL(만료) 정책 설정
+- 메모리 정책(maxmemory-policy) 확인: `allkeys-lru` 권장
+- 필요 시 스케일 업(상위 SKU) 또는 클러스터링 활성화
+
+### 느린 명령 (Slow Commands)
+**원인**: `KEYS *`, `SMEMBERS` 등 O(N) 명령 사용
+**해결**:
+- `KEYS` → `SCAN`으로 대체
+- `SLOWLOG GET 10`으로 느린 명령 확인
+- 큰 컬렉션 분할 처리

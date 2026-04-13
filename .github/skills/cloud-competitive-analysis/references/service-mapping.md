@@ -30,7 +30,7 @@
 | Azure Database for MySQL | RDS MySQL / Aurora MySQL | Cloud SQL (MySQL) |
 | Cosmos DB | DynamoDB / DocumentDB | Firestore / Bigtable |
 | Azure Cache for Redis | ElastiCache (Redis) | Memorystore (Redis) |
-| Azure Database for MariaDB | RDS MariaDB | — |
+| Azure Database for MariaDB ⚠️ _(Retired 2025-09)_ | RDS MariaDB | — _(→ PostgreSQL Flexible Server 권장)_ |
 
 ## Storage
 

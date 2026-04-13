@@ -142,6 +142,7 @@ graph TB
 
 Resource Graph 조회 시:
 ```
+# 사전 요구: az extension add --name resource-graph
 az graph query -q "Resources | where resourceGroup == '<rg-name>' | project name, type, location, sku, properties"
 ```
 

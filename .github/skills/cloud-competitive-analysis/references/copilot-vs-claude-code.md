@@ -11,7 +11,7 @@
 | **제공사** | GitHub (Microsoft) | Anthropic | Anysphere | Amazon (AWS) | Google |
 | **출시** | 2021 (GA 2022) | 2025 | 2023 | 2023 (CodeWhisperer 리브랜딩) | 2024 |
 | **포지셔닝** | 통합 AI 개발 플랫폼 | 터미널 기반 AI 코딩 에이전트 | AI-first 코드 에디터 | AWS 통합 개발자 어시스턴트 | Google Cloud 통합 어시스턴트 |
-| **핵심 모델** | GPT-4o, Claude 3.5, Gemini (멀티모델) | Claude 4 / Claude 3.5 Sonnet | GPT-4o, Claude (선택 가능) | Amazon 자체 모델 | Gemini 2.x |
+| **핵심 모델** | GPT-4o, Claude Opus/Sonnet, Gemini (멀티모델) | Claude 4 / Claude 3.5 Sonnet | GPT-4o, Claude (선택 가능) | Amazon 자체 모델 | Gemini 2.x |
 | **형태** | IDE 확장 + CLI + Web + 에이전트 | CLI (터미널 에이전트) | 독립 에디터 (VS Code 포크) | IDE 확장 | IDE 확장 |
 
 ---

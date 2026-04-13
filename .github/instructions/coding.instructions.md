@@ -1,5 +1,5 @@
 ---
-applyTo: "**/*.{py,js,ts,jsx,tsx,java,cs,go,rs,rb,php,swift,kt,c,cpp,h,hpp,sh,bash,zsh,yaml,yml,json,toml,sql}"
+applyTo: "**/*.{py,js,ts,jsx,tsx,mjs,cjs,java,cs,go,rs,rb,php,swift,kt,c,cpp,h,hpp,sh,bash,zsh,ps1,yaml,yml,json,toml,sql,bicep,tf,hcl,vue,svelte,dockerfile}"
 description: "코드 품질, 보안, 스타일 관련 코딩 지침. 모든 코드 파일에 적용됩니다."
 ---
 

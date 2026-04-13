@@ -57,7 +57,7 @@ A: `len(my_list)`를 사용합니다.
 ### 코드 블록
 - 항상 언어를 명시합니다: ` ```python `, ` ```typescript `
 - 코드에 핵심 주석을 포함합니다.
-- 실행 가능한 완전한 코드를 제공합니다.
+- 실행 가능한 완전한 코드를 제공합니다. 코드 제공 방식의 상세 지침은 [coding.instructions.md](coding.instructions.md)를 따릅니다.
 
 ### 표 (Table)
 비교가 필요할 때 표를 적극 활용합니다.

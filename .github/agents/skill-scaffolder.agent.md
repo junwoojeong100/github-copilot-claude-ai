@@ -62,9 +62,17 @@ argument-hint: "<슬래시 명령 시 표시될 힌트>"
 - **스킬 설명**: 1~2문장 요약
 - **When to Use**: 트리거 상황 나열
 - **Workflow**: 단계별 수행 절차
+- **Error Handling**: 예외 상황별 대응 테이블
 - **Output Format**: 결과물 형식 명시
+- **MCP Tools**: (해당 시) 사용 가능한 MCP 도구 목록
 
-### 5. 검증
+### 5. 문서 갱신 안내
+
+스킬 생성 후 다음 파일에 새 스킬 정보를 추가하도록 안내합니다:
+- `copilot-instructions.md`의 skills 목록
+- `README.md`의 프로젝트 구조 트리 및 skills 테이블
+
+### 6. 검증
 
 생성 후 `instruction-reviewer` 에이전트를 호출하여 새 스킬의 품질을 점검합니다.
 

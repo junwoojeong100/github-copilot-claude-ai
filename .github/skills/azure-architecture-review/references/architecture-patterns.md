@@ -146,7 +146,7 @@ Sources → Data Factory → Data Lake (Raw)
 ├── 데이터 처리
 │   ├── 실시간 → Event-Driven
 │   ├── 배치 → Big Data
-│   └── 혼합 → Lambda Architecture
+│   └── 혼합 → Event-Driven + Big Data 조합 (Lambda Architecture 패턴)
 ├── IoT
 │   └── IoT Hub → Stream Analytics → Event-Driven
 └── 엔터프라이즈 네트워킹
